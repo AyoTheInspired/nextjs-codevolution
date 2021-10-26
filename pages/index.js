@@ -15,6 +15,10 @@ export default function Home() {
 
 			<main className={styles.main}>
 				<h1>NEXTJS PRERENDERING</h1>
+
+				<Link href="/posts">
+					<a>POSTS</a>
+				</Link>
 			</main>
 		</div>
 	);
