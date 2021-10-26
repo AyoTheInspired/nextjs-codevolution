@@ -5,14 +5,6 @@ import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-	const router = useRouter();
-
-	const handleClick = () => {
-		console.log("Placing your order...");
-
-		router.push("/product");
-	};
-
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -22,11 +14,7 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<h1>The Homepage</h1>
-
-				<Link href="/blog">Blog</Link>
-
-				<button onClick={handleClick}>Place Order</button>
+				<h1>NEXTJS PRERENDERING</h1>
 			</main>
 		</div>
 	);
