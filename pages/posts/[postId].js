@@ -70,5 +70,6 @@ export async function getStaticProps(context) {
 		props: {
 			post: data,
 		},
+		// Configure Incremental Static Regeneration by adding a revalidate key which would reflect the number of seconds after which the page would be updated.
 	};
 }
