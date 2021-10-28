@@ -4,6 +4,7 @@ function CommentsPage() {
 	const [comments, setComments] = useState([]);
 	const [comment, setComment] = useState("");
 
+	// DEFAILT GET REQUEST
 	const fetchComments = async () => {
 		const response = await fetch("/api/comments");
 		const data = await response.json();
@@ -11,6 +12,7 @@ function CommentsPage() {
 		setComments(data);
 	};
 
+	// POST REQUEST
 	const submitComment = async () => {
 		const response = await fetch("/api/comments", {
 			method: "POST",
@@ -19,10 +21,21 @@ function CommentsPage() {
 				"Content-Type": "application/json",
 			},
 		});
+		const data = await response.json();
+
+		console.log(data);
+	};
+
+	// DELETE REQUEST
+	const deleteComment = async (commentId) => {
+		const response = await fetch(`/api/comments/${commentId}`, {
+			method: "DELETE",
+		});
 
 		const data = await response.json();
 
 		console.log(data);
+		fetchComments();
 	};
 
 	return (
@@ -41,7 +54,8 @@ function CommentsPage() {
 
 			{comments.map((comment) => (
 				<div key={comment.id}>
-					<p>{comment.id}</p> || <p>{comment.text}</p>
+					<p>{comment.id}</p> | <p>{comment.text}</p>
+					<button onClick={deleteComment(comment.id)}>Delete</button>
 				</div>
 			))}
 		</div>
